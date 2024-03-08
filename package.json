@@ -1,0 +1,28 @@
+{
+  "name": "ts_code",
+  "version": "1.0.0",
+  "description": "ts code repo practices",
+  "main": "index.ts",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RickBm400/ts_code.git"
+  },
+  "keywords": [
+    "typescript",
+    "repo",
+    "coding",
+    "module"
+  ],
+  "author": "@RickBm400",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RickBm400/ts_code/issues"
+  },
+  "homepage": "https://github.com/RickBm400/ts_code#readme",
+  "dependencies": {
+    "typescript": "^5.4.2"
+  }
+}
