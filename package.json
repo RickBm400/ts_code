@@ -2,9 +2,10 @@
   "name": "ts_code",
   "version": "1.0.0",
   "description": "ts code repo practices",
-  "main": "index.ts",
+  "main": "./src/index.ts",
   "scripts": {
-    "test": "npm run dev"
+    "dev": "nodemon ./src/index.ts",
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,10 @@
   },
   "homepage": "https://github.com/RickBm400/ts_code#readme",
   "dependencies": {
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
