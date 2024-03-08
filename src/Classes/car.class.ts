@@ -1,4 +1,4 @@
-export class Car {
+export default class Car {
     public amount: number;
 
     constructor(amount: number) {
