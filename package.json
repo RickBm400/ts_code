@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/RickBm400/ts_code#readme",
   "dependencies": {
+    "@types/node": "^22.10.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2"
   },

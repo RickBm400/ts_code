@@ -1,0 +1,43 @@
+¡Claro! Aquí tienes un ejercicio para practicar los principios SOLID en TypeScript.
+
+Contexto: Estás desarrollando una aplicación de gestión de tareas.
+
+Requisitos
+Single Responsibility Principle (SRP): Cada clase debe tener una única responsabilidad.
+
+Open/Closed Principle (OCP): Las clases deben estar abiertas a la extensión, pero cerradas a la modificación.
+
+Liskov Substitution Principle (LSP): Los objetos de una clase derivada deben ser reemplazables por objetos de la clase base sin alterar el comportamiento del programa.
+
+Interface Segregation Principle (ISP): Los clientes no deben verse obligados a depender de interfaces que no utilizan.
+
+Dependency Inversion Principle (DIP): Las clases deben depender de abstracciones, no de implementaciones.
+
+Ejercicio
+Definir la estructura de datos:
+
+Crea una clase Task con los siguientes atributos: id, title, description, completed.
+
+Asegúrate de que esta clase cumple con el SRP, es decir, solo debe contener la información relevante a una tarea.
+
+Implementar el repositorio de tareas:
+
+Crea una interfaz ITaskRepository con los métodos necesarios para agregar, eliminar, actualizar y obtener tareas.
+
+Implementa esta interfaz en una clase TaskRepository que maneje las tareas en memoria.
+
+Servicios de Tareas:
+
+Crea una interfaz ITaskService con los métodos necesarios para manipular las tareas (crear, actualizar, marcar como completadas).
+
+Implementa esta interfaz en una clase TaskService.
+
+Asegúrate de que TaskService depende de ITaskRepository (DIP).
+
+Validación de Tareas:
+
+Crea una clase TaskValidator que valide los datos de las tareas antes de almacenarlas. Asegúrate de cumplir con el SRP.
+
+Inyección de Dependencias:
+
+Implementa un contenedor de inyección de dependencias para gestionar las dependencias entre TaskService y TaskRepository.
