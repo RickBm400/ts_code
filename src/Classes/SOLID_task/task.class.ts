@@ -41,6 +41,17 @@ export class Task {
   public setStatus(status: string): void {
     this.status = status;
   }
+
+  public hashCode(): number {
+    let hash = 0;
+    const str = `${this.id}${this.title}${this.description}${this.status}`;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = (hash << 5) - hash + char;
+      hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+  }
 }
 
 export class TaskRepository implements ITaskRepository<Task> {
@@ -71,5 +82,9 @@ export class TaskRepository implements ITaskRepository<Task> {
     }
     const { title, description, status }: Task = file;
     this.tasks.set(id, new Task(title, description, status));
+  }
+
+  getAllTask() {
+    return this.tasks;
   }
 }
