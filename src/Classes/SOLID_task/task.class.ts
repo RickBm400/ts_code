@@ -1,10 +1,11 @@
 import ITaskRepository from './task.service';
+import generateUUID from '../../utils/uuid';
 
 export class Task {
   private id: number;
-  private title: string;
-  private description: string;
-  private status: string;
+  public title: string;
+  public description: string;
+  public status: string;
 
   constructor(title: string, description: string, status: string) {
     this.id = Math.floor(Math.random() * 1000);
@@ -42,10 +43,33 @@ export class Task {
   }
 }
 
-// export class TaskRepository implements ITaskRepository<Task> {
-//   //   private tasks: Task[];
-//   //   addTask(file: Task): Task {}
-//   //   deleteTask(id: number): Task | void {}
-//   //   getTask(id: number): Task {}
-//   //   updateTask(): Task {}
-// }
+export class TaskRepository implements ITaskRepository<Task> {
+  private tasks: Map<any, Task> = new Map();
+
+  add(file: Task): void | Task {
+    let genId = generateUUID();
+    const { title, description, status }: Task = file;
+    this.tasks.set(genId, new Task(title, description, status));
+    return this.get(genId);
+  }
+
+  delete(id: string): void | Task {
+    this.tasks.delete(id);
+  }
+
+  get(id: number | any): Task {
+    let findTask: Task | undefined = this.tasks.get(id);
+    if (!findTask) {
+      throw new Error(`Task with id ${id} not found`);
+    }
+    return findTask;
+  }
+
+  update(id: string, file: Task): Task | void {
+    if (!this.tasks.has(id)) {
+      throw new Error(`Task ${id} doesn't exist in hashmap`);
+    }
+    const { title, description, status }: Task = file;
+    this.tasks.set(id, new Task(title, description, status));
+  }
+}

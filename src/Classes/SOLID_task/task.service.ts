@@ -1,8 +1,6 @@
-import { Task } from './task.class';
-
 export default interface ITaskRepository<T> {
-  addTask(file: T): Task;
-  deleteTask(id: number): Task | void;
-  updateTask(): Task;
-  getTask(id: number): Task;
+  add(file: T): T | void;
+  delete(id: string): T | void;
+  update(id: string, file: any): T | void;
+  get(id: string | any): T;
 }
